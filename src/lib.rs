@@ -156,43 +156,6 @@ pub struct Metadata {
     // repo: FileURL,
 }
 
-pub trait CrateFuncs {
-    fn name(&self) -> &str;
-    fn author(&self) -> &str;
-    // ...
-}
-
-struct Binary {
-    metadata: Metadata,
-}
-struct Library {
-    metadata: Metadata,
-}
-
-impl CrateFuncs for Binary {
-    fn name(&self) -> &str {
-        self.metadata.name()
-    }
-
-    fn author(&self) -> &str {
-        self.metadata.author()
-    }
-}
-
-impl CrateFuncs for Library {
-    fn name(&self) -> &str {
-        self.metadata.name()
-    }
-
-    fn author(&self) -> &str {
-        self.metadata.author()
-    }
-}
-
-struct TraitBasedRepo {
-    items: Vec<Box<dyn CrateFuncs>>,
-}
-
 impl Metadata {
     pub fn new(name: impl AsRef<str>, author: impl AsRef<str>, kind: CrateKind) -> Self {
         Self {
