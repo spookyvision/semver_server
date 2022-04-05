@@ -1,0 +1,2 @@
+#!/bin/sh
+RUST_LOG=debug REPO_STORE=/tmp/store.json cargo run --bin server
